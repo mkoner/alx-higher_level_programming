@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-    import hidden_4
-    all_dir = dir(hidden_4)
-    for i in range(0, len(all_dir)):
-        if "__" != all_dir[i][:2]:
-            print(all_dir[i])
+import hidden_4
+i = 0
+if __name__ == '__main__':
+    mylist = dir(hidden_4)
+    newlist = sorted(mylist)
+    while i < len(newlist):
+        if newlist[i][0] != '_':
+            print(newlist[i])
+        i += 1
