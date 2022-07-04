@@ -7,3 +7,5 @@ def no_c(my_string):
             continue
         new_string[i] == c
         i++
+
+    return new_string
