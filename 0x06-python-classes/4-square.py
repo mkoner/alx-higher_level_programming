@@ -5,13 +5,14 @@ Initializes it and checks the size attribute
 returns the area of the square
 """
 
+
 class Square:
     """Square class implementation"""
 
     def __init__(self, size=0):
         """Initializing the square object"""
         self.size = size
-    
+
     @property
     def size(self):
         """Retrieves the attribute size"""
