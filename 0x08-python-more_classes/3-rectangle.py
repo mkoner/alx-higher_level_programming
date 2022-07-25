@@ -21,7 +21,8 @@ class Rectangle:
         for i in range(self.__height):
             for j in range(self.__width):
                 my_string += "#"
-            my_string += "\n"
+            if i != self.__height - 1:
+                my_string += "\n"
         return my_string
 
     @property
