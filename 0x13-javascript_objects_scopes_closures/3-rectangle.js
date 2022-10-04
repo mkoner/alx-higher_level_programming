@@ -12,5 +12,6 @@ class Rectangle {
     for (let count = 0; count < this.height; count++) {
       console.log('X'.repeat(this.width));
     }
+   }
   }
 module.exports = Rectangle;
