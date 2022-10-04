@@ -1,10 +1,10 @@
 #!/usr/bin/node
-const list = require('./101-data').dict;
+const data = require('./101-data').dict;
 const sorted = {};
 
-Object.keys(list).forEach(key => {
-  if (sorted[list[key]] === undefined) sorted[list[key]] = [];
-  sorted[list[key]].push(key);
+Object.keys(data).forEach(key => {
+  if (sorted[data[key]] === undefined) sorted[data[key]] = [];
+  sorted[data[key]].push(key);
 }
 );
 console.log(sorted);
