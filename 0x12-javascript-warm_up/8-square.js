@@ -2,9 +2,9 @@
 const process = require('process');
 const number = parseInt(process.argv[2]);
 if (isNaN(number)) {
-  console.log('Missing number of occurrences');
+  console.log('Missing size');
 } else {
   for (let i = 0; i < number; i++) {
-    console.log('C is fun');
+    console.log('X'.repeat(number));
   }
 }
