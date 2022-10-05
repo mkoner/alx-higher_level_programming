@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const process = require('process');
-let nums = process.argv.slice(2).map((x) => {
+const nums = process.argv.slice(2).map((x) => {
   return parseInt(x);
 });
 
