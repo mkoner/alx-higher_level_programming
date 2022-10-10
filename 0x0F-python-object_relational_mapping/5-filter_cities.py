@@ -17,9 +17,9 @@ if __name__ == '__main__':
                 INNER JOIN states ON cities.state_id = states.id\
                 WHERE states.name = %s", [argv[4]])
 
-    rows = cur.fetchall()
+    query_rows = cur.fetchall()
     j = []
-    for i in rows:
+    for i in query_rows:
         j.append(i[1])
     print(", ".join(j))
 
