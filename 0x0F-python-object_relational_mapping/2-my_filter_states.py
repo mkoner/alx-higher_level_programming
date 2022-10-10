@@ -13,11 +13,10 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3])
 
     cur = db.cursor()
-    nmeSr = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
-    cur.execute(nmeSr)
+    cur.execute = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
 
-    rows = cur.fetchall()
-    for i in rows:
+    query_rows = cur.fetchall()
+    for i in query_rows:
         print(i)
     cur.close()
     db.close()
