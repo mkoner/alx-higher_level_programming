@@ -9,14 +9,15 @@ from sys import argv
 # The code should not be executed when imported
 if __name__ == '__main__':
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                          passwd=argv[2], db=argv[3])
 
-    cur = db.cursor()
-    cur.execute = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
+    cur = conn.cursor()
+    query = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
+    cur.execute(query)
 
     query_rows = cur.fetchall()
     for i in query_rows:
         print(i)
     cur.close()
-    db.close()
+    conn.close()
