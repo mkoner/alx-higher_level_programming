@@ -9,8 +9,9 @@ from sys import argv
 # The code should not be executed when imported
 if __name__ == '__main__':
     # make a connection to the database
-    conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3])
+    conn = MySQLdb.connect(
+            ihost="localhost", port=3306, user=argv[1],
+            passwd=argv[2], db=argv[3])
 
     cur = conn.cursor()
     cur.execute("SELECT cities.name\
