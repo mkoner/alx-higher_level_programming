@@ -20,10 +20,10 @@ if __name__ == "__main__":
     session = Session()
     Base.metadata.create_all(engine)
 
-    s_tate = session.query(State).filter(State.name == argv[4]).first()
+    state_object = session.query(State).filter(State.name == argv[4]).first()
 
-    if s_tate:
-        print("{}".format(s_tate.id))
+    if state_object:
+        print("{}".format(state_object.id))
     else:
         print("Not found")
     session.close()
