@@ -21,8 +21,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for a_city in session.query(City).order_by(City.id):
-            print("{}: {} -> {}".format(a_city.id, a_city.name,
-                  a_city.state.name))
+    for this_city in session.query(City).order_by(City.id):
+            print("{}: {} -> {}".format(this_city.id, this_city.name,
+                  this_city.state.name))
 
     session.close()
