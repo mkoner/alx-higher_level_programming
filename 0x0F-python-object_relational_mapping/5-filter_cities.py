@@ -13,16 +13,14 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3])
 
     cur = conn.cursor()
-    cur.execute("SELECT cities.id, cities.name FROM cities\
-                INNER JOIN states ON cities.state_id = states.id\
-                WHERE states.name = %s", [argv[4]])
+    cur.execute("SELECT cities.name\
+                FROM cities LEFT JOIN states\
+                ON states.id = cities.state_id\
+                WHERE states.name = %s\
+                ORDER BY cities.id ASC", (argv[4],))
 
     query_rows = cur.fetchall()
-    j = []
-    for i in query_rows:
-        j.append(i[1])
-    print(", ".join(j))
+    print(", ".join([row[0] for row in query_rows]))
 
-    # Clean up process
     cur.close()
     conn.close()
