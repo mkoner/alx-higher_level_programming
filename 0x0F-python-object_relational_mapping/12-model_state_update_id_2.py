@@ -18,8 +18,8 @@ if __name__ == "__main__":
     # create a Session
     session = Session()
     Base.metadata.create_all(engine)
-    state_update = session.query(State).filter_by(id='2').first()
-    state_update.name = "New Mexico"
+    state_updated = session.query(State).filter_by(id='2').first()
+    state_updated.name = "New Mexico"
     # commit and close session
     session.commit()
     session.close()
