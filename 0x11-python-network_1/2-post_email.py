@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 """
 Python script that takes in a URL and an email, sends a POST request to the
-passed URL with the email as a parameter, and displays the body of the 
-response (decoded in utf-8)
+passed URL with the email as a parameter
 """
 
 if __name__ == "__main__":
-    import urllib.parse as parser
+    import sys
     import urllib.request as my_request
-    from sys import argv
-    values = {'email': argv[2]}
-    data = parser.urlencode(values).encode('utf-8')
-    req = my_request.Request(argv[1], data)
-    with my_request.urlopen(req) as res:
-        print("Your email is: {}".format(res.read().decode('utf-8')))
+    import urllib.parse as my_parser
+    my_url = sys.argv[1]
+    my_email = sys.argv[2]
+    my_value = {'email': my_email}
+    my_data = my_parser.urlencode(my_value).encode('utf-8')
+    my_req = my_request.Request(my_url, my_data)
+    with my_request.urlopen(my_req) as my_response:
+        page = my_response.read()
+        print("Your email is: {}".format(page.decode('utf-8')))
