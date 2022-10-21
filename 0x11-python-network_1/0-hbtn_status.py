@@ -5,7 +5,8 @@ Script to fetch from https://alx-intranet.hbtn.io/status
 
 if __name__ == "__main__":
     import urllib.request as my_request
-    with my_request.urlopen('https://alx-intranet.hbtn.io/status') as my_response:
+    with my_request.urlopen('https://alx-intranet.hbtn.io/status') as \
+            my_response:
         my_page = my_response.read()
         print('Body response:')
         print("\t- type: {}".format(type(my_page)))
