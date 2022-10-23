@@ -6,18 +6,15 @@ with the letter as a parameter
 if __name__ == '__main__':
     import requests
     from sys import argv
-    if len(argv) == 2:
-        q = argv[1]
-    else:
-        q = ""
-    r = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
+    q = argv[1] if len(argv) > 1 else ""
+    res = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
-        r_dict = r.json()
-        id = r_dict.get('id')
-        name = r_dict.get('name')
-        if len(r_dict) == 0 or not id or not name:
+        json_response = res.json()
+        id = json_response.get('id')
+        name = json_response.get('name')
+        if len(json_response) == 0 or not id or not name:
             print("No result")
         else:
-            print("[{}] {}".format(r_dict.get('id'), r_dict.get('name')))
+            print("[{}] {}".format(id, name))
     except:
         print("Not a valid JSON")
