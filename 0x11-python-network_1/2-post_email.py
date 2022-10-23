@@ -11,7 +11,6 @@ if __name__ == "__main__":
     my_url = sys.argv[1]
     my_email = sys.argv[2]
     my_value = {'email': my_email}
-    my_data = my_parser.urlencode(my_value).encode('utf-8')
     my_req = my_request.Request(my_url, my_data)
     with my_request.urlopen(my_req) as my_response:
         page = my_response.read()
