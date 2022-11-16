@@ -7,8 +7,11 @@ request(process.argv[2], (err, res, body) => {
     console.log(err);
   } else {
     const allMovies = JSON.parse(body).results;
-    const movies = allMovies.filter( movie => movie.characters.includes('https://swapi-api.hbtn.io/api/people/18/'));
-    console.log(movies.length);
-
+    if (allMovies.length > 0) {
+      const movies = allMovies.filter(movie => movie.characters.includes('https://swapi-api.hbtn.io/api/people/18/'));
+      console.log(movies.length);
+    } else {
+      console.log(0);
+    }
   }
 });
