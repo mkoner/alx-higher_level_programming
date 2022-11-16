@@ -7,10 +7,10 @@ request(process.argv[2], (err, res, body) => {
     console.log(err);
   } else {
     const results = JSON.parse(body);
-    let grouped = {};
+    const grouped = {};
     results.forEach(result => {
       const uid = result.userId;
-      if (!(uid in grouped)) {
+      if (!(uid in grouped) && result.completed) {
         grouped[uid] = {};
         grouped[uid] = 0;
       }
